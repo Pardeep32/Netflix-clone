@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: netflix-app
   labels:
-    app: netflix-app  
+    app: netflix-app
 spec:
-  selector:
-    app: netflix-app 
+  type: NodePort
   ports:
   - port: 80
-    targetPort: 3000
-    protocol: TCP
-  type: LoadBalancer
+    targetPort: 80
+    nodePort: 30007
+  selector:
+    app: netflix-app
